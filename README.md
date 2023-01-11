@@ -5,15 +5,17 @@ _TTV-Button-Mash allows you to use your twitch app to listen for a Channel Point
 
 ## Overview
 TTV-Button-Mash as a very simple program inspired by more advanced projects like "TwitchPlaysPokemon". Its scope is limited to `reacting to channel point reward redemptions to press a single button`.   
-This can allow a streamer to allow give their chat an easy & obvious interaction with _any_(👀 See Limitations) game or program, with control over the level of chaos built into the program configs you speficify & the Channel Points system itself.
+This can allow a streamer to give their chat an easy & obvious interaction with _any_(👀 See Limitations) game or program, with control over the level of chaos via configs you speficify & the Channel Points system itself.
 
 //TODO: [Insert GIF of program in action]
 
-## Requirements / Limitations
+## Requirements, Limitations & Prerequisites
 
 The program runs on Node.js and requires an LTS installation to work (v18 at time of writing).
 
 The detection of game window only works on Windows, so this is the suggested environment to run ttv-bm.
+
+So ideally -> Install node on your Windows system before continuing.
 
 ## Installation / Setup
 
@@ -24,14 +26,14 @@ You will need to setup an application with Twitch on their developer console in 
 You will want to start exporting environment variables that will be used by the program into your terminal.  
 
 Channel Variables:
-```json
+```properties
 TWITCH_CHANNEL //your channel name
 TWITCH_CHANNEL_ID //your channel ID
 TWITCH_REWARD_ID // Added later when you test a custom reward
 ```
 App Variables:
-```json
-//Found in twitch dev console
+```properties
+// Found in twitch dev console
 TWITCH_APP_CLIENT_ID 
 TWITCH_APP_SECRET
 ```
@@ -67,7 +69,7 @@ You should see your join message from the config.ts file sent into the chat if y
 From here we can redeem the target reward while the program is listening to the channel events, and see the DEBUG logs with our reward info. Grab the `rewardId` & set `TWITCH_REWARD_ID` to use this value.
 
 Open your game/program of choice & use the `window name` to set another variable:
-```JSON
+```properties
 TPBM_WINDOW_TITLE
 ```
 Once this variable is set, the program should spam your button of choice, as long as you have the target window in focus.
